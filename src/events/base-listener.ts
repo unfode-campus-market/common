@@ -37,8 +37,13 @@ export abstract class Listener<T extends Event> {
       console.log(
         `Message received: ${this.subject} / ${this.queueGroupName}`
       );
-      const parsedData = msg.getData().toString();
+      const parsedData = this.parseMessage(msg);
       this.onMessage(parsedData, msg);
     });
+  }
+
+  parseMessage(msg: Message) {
+    const data = msg.getData();
+    return typeof data === 'string' ? JSON.parse(data) : JSON.parse(data.toString('utf8'));
   }
 }
