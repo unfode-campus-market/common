@@ -44,6 +44,10 @@ export abstract class Listener<T extends Event> {
 
   parseMessage(msg: Message) {
     const data = msg.getData();
-    return typeof data === 'string' ? JSON.parse(data) : JSON.parse(data.toString('utf8'));
+    console.log(data);
+    console.log(typeof data);
+    const parsedData = typeof data === 'string' ? JSON.parse(data) : JSON.parse(data.toString('utf8'));
+    console.log(parsedData);
+    return parsedData;
   }
 }
