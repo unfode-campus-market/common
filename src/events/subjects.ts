@@ -3,5 +3,6 @@ export enum Subjects {
   ItemCreated = 'item:created',
   ItemUpdated = 'item:updated',
   OrderCreated = 'order:created',
-  OrderCancelled = 'order:cancelled'
+  OrderCancelled = 'order:cancelled',
+  ExpirationComplete = 'expiration:complete'
 }
